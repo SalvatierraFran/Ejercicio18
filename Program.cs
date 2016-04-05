@@ -11,14 +11,42 @@ namespace Ejercicio18
         {
             Console.Title = "Ejercicio 18";
 
-            Computadora PC1 = new Computadora(true, Enumerados.EMarca.Apple, 125, Enumerados.EProcesador.Intel_Core_i7);
+            string rta = "s";
 
-            Console.Write("PC Encendida: "+ PC1.getEstaEncendida());
-            Console.Write("\nMarca: " + PC1.getMarca());
-            Console.Write("\nPeso: " + PC1.getPeso());
-            Console.Write("\nProcesador: " + PC1.getProcesador());
+            Computadora UnaComputadora = new Computadora(true, Enumerados.EMarca.Apple, 125, Enumerados.EProcesador.Intel_Core_i7);
 
-            Console.ReadKey();
+            do
+            {
+                Console.Clear();
+                Console.Write("1.Informar estado\n2.Encender\n3.Apagar\n4.Salir\n\nIngrese su opcion: ");
+                int opcion = int.Parse(Console.ReadLine());
+
+                switch (opcion)
+                {
+                    case 1:
+                        Console.Clear();
+                        Console.Write("Encendida: " + UnaComputadora.getEstaEncendida());
+                        Console.Write("\nMarca: " + UnaComputadora.getMarca());
+                        Console.Write("\nPeso: " + UnaComputadora.getPeso());
+                        Console.Write("\nProcesador: " + UnaComputadora.getProcesador());
+                        Console.ReadKey();
+                        break;
+
+                    case 2:
+                        Console.Clear();
+                        UnaComputadora.setEstaEncendida(true);
+                        break;
+
+                    case 3:
+                        Console.Clear();
+                        UnaComputadora.setEstaEncendida(false);
+                        break;
+
+                    case 4:
+                        rta = "n";
+                        break;
+                }
+            } while (rta == "s");
         }
     }
 }
